@@ -1,7 +1,8 @@
-""" Проект FitLife - MVP версия 1.0 """
+"""Проект FitLife - MVP версия 1.0"""
+
 
 def fitlife():
-    """Знакомство, приведение имени к правильному формату """
+    """Знакомство, приведение имени к правильному формату"""
     print('Привет! Я бот FitLife. Давай знакомиться.')
     user_name = input('Как тебя зовут?')
     name_formated = user_name.capitalize()
@@ -10,7 +11,9 @@ def fitlife():
     try:
         user_age = int(input('Сколько тебе лет? '))
         user_weight = float(input('Введи свой вес (в кг): '))
-        user_height = float(input('Введи свой рост (в метрах, например 1.70):'))
+        user_height = float(
+            input('Введи свой рост (в метрах, например 1.70): ')
+            )
     except ValueError:
         print('Ошибка: пожалуйста, вводите числа для возраста, веса и роста.')
         return
