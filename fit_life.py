@@ -13,7 +13,7 @@ def fitlife():
         user_weight = float(input('Введи свой вес (в кг): '))
         user_height = float(
             input('Введи свой рост (в метрах, например 1.70): ')
-            )
+        )
     except ValueError:
         print('Ошибка: пожалуйста, вводите числа для возраста, веса и роста.')
         return
@@ -32,6 +32,7 @@ def fitlife():
     print(f'Рекомендуемая норма воды: {norm_water} л в день')
     print('\nРасчёт окончен. Будьте здоровы!')
     print("=" * 50)
+
 
 # Вызов функции
 fitlife()
