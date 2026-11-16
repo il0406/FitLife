@@ -5,9 +5,8 @@ WATER_COEFFICIENT = 0.03          # норма воды: X литров на 1 �
 
 
 def read_float(prompt: str) -> float:
-    """Запрашивает у пользователя число с плавающей точкой,
-    повторяет ввод при ошибке.
-"""
+    """Запрашивает у пользователя число с плавающей точкой.
+    Повторяет ввод при ошибке."""
     while True:
         try:
             return float(input(prompt))
@@ -41,6 +40,7 @@ def process_user_fitness():
     print('\nРасчёт окончен. Будьте здоровы!')
     print("=" * 50)
 
-    # Вызов функции
+
+# Вызов функции
 if __name__ == '__main__':
     process_user_fitness()
