@@ -6,7 +6,8 @@ WATER_COEFFICIENT = 0.03          # норма воды: X литров на 1 �
 
 def read_float(prompt: str) -> float:
     """Запрашивает у пользователя число с плавающей точкой.
-    Повторяет ввод при ошибке."""
+    Повторяет ввод при ошибке.
+    """
     while True:
         try:
             return float(input(prompt))
