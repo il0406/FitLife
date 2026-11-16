@@ -2,10 +2,7 @@
 
 # Константы
 WATER_COEFFICIENT = 0.03          # норма воды: X литров на 1 кг веса
-MIN_AGE = 1
-MAX_AGE = 120
-MIN_WEIGHT = 30
-MIN_HEIGHT = 0.5
+
 
 
 def read_float(prompt: str) -> float:
@@ -26,26 +23,29 @@ def process_user_fitness():
     user_name = user_name.capitalize()
 
     # Ввод возраста, веса и роста, с проверкой
-    while True:
-        age = read_float('Сколько тебе лет? ')
-        if MIN_AGE <= age <= MAX_AGE:
-            user_age = int(age)
-            break
-        print(f'Ошибка: возраст должен быть от {MIN_AGE} до {MAX_AGE}.')
+    try:
+        user_age = int(input('Сколько тебе лет? '))
+    except ValueError:
+        print('Ошибка: возраст должен быть целым числом.')
+        return
 
-    while True:
-        user_weight = read_float('Введи свой вес (в кг): ')
-        if user_weight >= MIN_WEIGHT:
-            break
-        print(f'Ошибка: вес должен быть не меньше {MIN_WEIGHT} кг.')
-
-    while True:
-        user_height = read_float('Введи свой рост (в метрах, например 1.70): ')
-        if user_height >= MIN_HEIGHT:
-            break
-        print(f'Ошибка: рост должен быть не меньше {MIN_HEIGHT} м.')
+    try:
+        user_weight = float(input('Введи свой вес (в кг): '))
+    except ValueError:
+        print('Ошибка: вес должен быть числом.')
+        return
+    try:
+        user_height = float(
+            input('Введи свой рост (в метрах, например 1.70): ')
+        )
+    except ValueError:
+        print('Ошибка: рост должен быть числом.')
+        return
 
     # Расчет ИМТ и нормы потребления воды с округлением результата
+    if user_height <= 0:
+        print('Рост должен быть больше нуля.')
+        return
     bmi = round(user_weight / (user_height ** 2), 1)
     norm_water = round((user_weight * WATER_COEFFICIENT), 1)
 
